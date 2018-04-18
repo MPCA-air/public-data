@@ -49,12 +49,16 @@ sites <- left_join(sites, select(cities, cityid, city_name))
 # Drop columns
 names(sites)
 
-sites <- select(sites, site_catid, city_name, everything(), -gid_cc, -cityid, -id_site, -the_geom)
+sites <- select(sites, site_catid, site_name, street_addr, city_name, zipcode, everything(), -gid_cc, -cityid, -id_site, -the_geom)
 
 
 # Drop sites closed before year 2000
 sites <- filter(sites, is.na(terminated) | as.Date(terminated) > as.Date("2000-01-01"))
 
+# Swith to "elevation"
+names(sites) <- gsub("vert", "elev", names(sites))
+
+sites <- rename(sites, long = lon)
 
 # SAVE
 write_csv(sites, "Monitoring sites/aqs_monitoring_sites_2000_to_current.csv", na = "")
