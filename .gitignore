@@ -2,11 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-
 *.Rproj
-
-*.gitignore
-
-.gitignore
-
 .Rproj
+R/*
+R/
