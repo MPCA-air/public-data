@@ -1,3 +1,3 @@
-# public-data
+# public-data :cloud: :floppy_disk:
 
-Share air quality data :cloud: :floppy_disk:
+Air quality data 
